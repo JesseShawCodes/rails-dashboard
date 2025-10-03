@@ -22,3 +22,16 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+## Running in Demo Mode
+
+This project supports a demo mode.
+You can run demmo mode without any Apple Music Developer Keys
+
+```
+bash
+cd music_analytics
+docker compose up
+docker compose run web rails db:setup
+```

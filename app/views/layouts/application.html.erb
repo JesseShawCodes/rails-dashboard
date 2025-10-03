@@ -23,8 +23,12 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+    <%= render 'layouts/navigation' %>
+    <section class="section">
+      <div class="container">
+        <%= render 'layouts/flash' %>
+        <%= yield %>
+      </div>
+    </section>
   </body>
 </html>
