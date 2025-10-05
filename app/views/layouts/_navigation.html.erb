@@ -16,6 +16,9 @@
       <div class="navbar-item">
         <div class="buttons">
           <% if user_signed_in? %>
+            <div class="navbar-item">
+              <%= current_user.name %>
+            </div>
             <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "button is-light" %>
           <% end %>
         </div>

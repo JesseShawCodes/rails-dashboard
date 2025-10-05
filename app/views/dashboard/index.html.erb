@@ -1,23 +1,14 @@
-<section class="section">
-  <div class="container">
-    <h1 class="title">Welcome, <%= current_user.name %>!</h1>
-    <h2 class="subtitle">Here are your recently played songs:</h2>
+<h1>Welcome, <%= current_user.name %>!</h1>
 
-    <table class="table is-striped is-fullwidth">
-      <thead>
-        <tr>
-          <th>Song</th>
-          <th>Artist</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @recent_plays.each do |play| %>
-          <tr>
-            <td><%= play.song.name %></td>
-            <td><%= play.song.artist.name %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</section>
+<h2>Recently Played Songs</h2>
+<ul id="recent_plays">
+  <%= turbo_stream_from "dashboard_#{current_user.id}_plays" %>
+  <%= render partial: "dashboard/play_history", collection: @recent_plays, as: :play %>
+</ul>
+
+<h2>Top Artists</h2>
+<ul>
+  <% @artist_counts.each do |artist, count| %>
+    <li><%= artist %>: <%= count %> plays</li>
+  <% end %>
+</ul>
