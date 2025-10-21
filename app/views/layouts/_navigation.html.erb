@@ -1,6 +1,6 @@
 <nav class="navbar" role="navigation" aria-label="main navigation" data-controller="navbar">
   <div class="navbar-brand">
-    <a class="navbar-item" href="<%= user_signed_in? ? authenticated_root_path : root_path %>">
+    <a class="navbar-item" href="<%= user_signed_in? ? authenticated_root_path : unauthenticated_root_path %>">
       Music Analytics
     </a>
 
